@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\NilaiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/index_u');
 });
+
+
+Route::get('/chart',[NilaiController::class,'chart']);
+Route::get('/index_u',[NilaiController::class,'index']);
+Route::post('/insert_nilai',[NilaiController::class,'store'])->name('insert.nilai');
